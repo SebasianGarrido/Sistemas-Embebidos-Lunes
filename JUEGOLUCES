@@ -1,0 +1,113 @@
+int led_1=13;
+int led_2=12;
+int led_3=11;
+int led_4=10;
+int led_5=9;
+int led_6=8;
+int led_7=7;
+int led_8=6;
+int led_9=5;
+int led_10=4;
+int sw_1=3;
+int sw_2=2;
+int sw_3=1;
+
+int contador=0;
+int leds[10]={led_1,led_2,led_3,led_4,led_5,led_6,led_7,led_8,led_9,led_10};
+int leds2[10]={led_2,led_4,led_6,led_8,led_10};
+int leds3[10]={led_1,led_3,led_5,led_7,led_9};
+int cont=0,ran,j=0,n,m,r;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(led_1,OUTPUT);
+  pinMode(led_2,OUTPUT);
+  pinMode(led_3,OUTPUT);
+  pinMode(led_4,OUTPUT);
+  pinMode(led_5,OUTPUT);
+  pinMode(led_6,OUTPUT);
+  pinMode(led_7,OUTPUT);
+  pinMode(led_8,OUTPUT);
+  pinMode(led_9,OUTPUT);
+  pinMode(led_10,OUTPUT);
+  pinMode(sw_1,INPUT);  
+  pinMode(sw_2,INPUT);
+  pinMode(sw_3,INPUT);
+ 
+  
+
+}
+
+void loop() {
+  if(digitalRead(sw_1)==LOW&&digitalRead(sw_2)==HIGH&&digitalRead(sw_3)==LOW)
+  {
+    for(;contador<10;contador++){
+      digitalWrite(leds2[contador],HIGH);
+    delay(100);
+    digitalWrite(leds2[contador],LOW);
+    delay(100);
+     }   
+contador=0;   
+}
+if(digitalRead(sw_1)==LOW&&digitalRead(sw_2)==HIGH&&digitalRead(sw_3)==HIGH)
+  {
+    for(;cont<10;cont++){
+      digitalWrite(leds3[cont],HIGH);
+    delay(100);
+    digitalWrite(leds3[cont],LOW);
+    delay(100); }   
+cont=0;  
+}
+if(digitalRead(sw_1)==HIGH&&digitalRead(sw_2)==HIGH&&digitalRead(sw_3)==HIGH)
+
+  {if(j<5){
+      for(;cont<10;cont++){
+        
+      digitalWrite(leds[cont],HIGH);
+    delay(200);
+    digitalWrite(leds[cont+1],HIGH);
+    delay(200);
+ digitalWrite(leds[cont],LOW);
+    delay(200); }
+  j++;}
+    cont=0; }
+  if(digitalRead(sw_1)==HIGH&&digitalRead(sw_2)==LOW&&digitalRead(sw_3)==HIGH){
+      randomSeed(millis());    
+       ran = random(10);
+     digitalWrite(leds[ran],HIGH);
+     delay(100);
+     digitalWrite(leds[ran],LOW);
+     delay(100);
+}
+ if(digitalRead(sw_1)==HIGH&&digitalRead(sw_2)==HIGH&&digitalRead(sw_3)==LOW){
+  digitalWrite(leds[0],HIGH);
+  digitalWrite(leds[9],HIGH);
+  delay(200);
+  digitalWrite(leds[0],LOW);
+  digitalWrite(leds[9],LOW);
+  delay(200);
+  digitalWrite(leds[1],HIGH);
+  digitalWrite(leds[8],HIGH);
+  delay(200);
+  digitalWrite(leds[1],LOW);
+  digitalWrite(leds[8],LOW);
+  delay(200);
+  digitalWrite(leds[2],HIGH);
+  digitalWrite(leds[7],HIGH);
+  delay(200);
+  digitalWrite(leds[2],LOW);
+  digitalWrite(leds[7],LOW);
+  delay(200);
+  digitalWrite(leds[3],HIGH);
+  digitalWrite(leds[6],HIGH);
+  delay(200);
+  digitalWrite(leds[3],LOW);
+  digitalWrite(leds[6],LOW);
+  delay(200);
+  digitalWrite(leds[4],HIGH);
+  digitalWrite(leds[5],HIGH);
+  delay(200);
+  digitalWrite(leds[4],LOW);
+  digitalWrite(leds[5],LOW);
+  delay(200);
+  }}
