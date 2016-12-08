@@ -1,0 +1,67 @@
+#include"matriz.h"
+int fila,columna;
+int suma=0;
+int a=0,b=0,posision;
+int opcion;
+int rfinal=0,resultado=0;
+long int mult=1;
+float pro=0;
+float prom=0;
+
+
+void setup() {
+  Serial.begin(9600);
+   Serial.println("OPERACIONES A REALIZAR");
+  Serial.println("Ingrese la letra  A para la suma de cada fila");
+ Serial.println("Ingrese la letra  B para multiplicacion de cada columna");
+ Serial.println("Ingrese la letra  C para promedio de las sumas de todas las columnas");
+}
+
+void loop() {
+  opcion=Serial.read();
+  switch(opcion){
+  case 'A':
+   for(;a<20;a++){
+   for (;b<3;b++){
+    posision=matriz[a][b];
+    suma=suma+posision;
+    delay(100);}
+    Serial.print("Suma de cada fila");
+    Serial.print(a);
+    Serial.print(": ");
+    Serial.println(suma);
+    suma=0;
+    b=0;
+  }
+   case 'B':
+ {
+  for(;b<3;b++)
+{
+    mult=1;
+    for(;a<20;a++)
+    {
+        mult=mult*(matriz[a][b]);
+    }
+ Serial.print("   COLUMNA  ");
+     Serial.println(b+1);
+     delay(300);
+    Serial.println(mult);
+    delay(300);
+}
+  break;
+  
+  break; case 'C':
+ for(;a<3;a++) {
+    for (;b<20;b++){
+    posision=matriz[b][a];
+    suma=suma+posision; }
+    rfinal=rfinal+suma;
+    suma=0;
+     b=0;}
+   resultado=rfinal/3;
+   Serial.print("El promedio de la suma es : ");
+   Serial.print(resultado);
+   break;
+  
+
+  }}}
